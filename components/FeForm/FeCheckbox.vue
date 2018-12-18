@@ -1,7 +1,7 @@
 <template>
   <div style="display: inline-block">
     <div class="fe-checkbox">
-      <PrettyCheck class="p-icon p-curve p-pulse" v-model="localValue" color="primary">
+      <PrettyCheck class="p-icon p-curve" v-model="localValue" color="primary">
         <i slot="extra" class="icon icon-Check"></i>
         <slot></slot>
       </PrettyCheck>

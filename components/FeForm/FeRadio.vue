@@ -1,7 +1,7 @@
 <template>
   <div style="display: inline-block">
     <div class="fe-radio">
-      <PrettyRadio :name="name" class="p-default p-pulse p-round p-thick" color="primary-o">
+      <PrettyRadio :name="name" class="p-default p-round p-thick" color="primary-o">
         <slot></slot>
       </PrettyRadio>
     </div>
