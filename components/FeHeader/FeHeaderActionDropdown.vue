@@ -77,14 +77,14 @@ export default {
 
 .fe-header-action-dropdown__list {
   position: absolute;
-  background: white;
-  min-width: calc(100% + 1px);
+  width: calc(100% + 1px);
   top: 100%;
-  box-shadow: -3px 3px 5px rgba(0, 0, 0, 0.08);
+  box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.08);
+  min-width: 150px;
 }
 
 .fe-header-action-dropdown--light .fe-header-action-dropdown__list {
-  background: white;
+  background: #f8f8f8;
 }
 
 .fe-header-action-dropdown--dark .fe-header-action-dropdown__list {

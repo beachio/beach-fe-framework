@@ -45,6 +45,9 @@ export default {
   border-left: 1px solid #f2f2f2;
 }
 
+.fe-header-action.active {
+  box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.08);
+}
 .fe-header-action--dark {
   border-left: 1px solid #57575c;
 }
