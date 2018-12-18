@@ -1,0 +1,11 @@
+{
+  "name": "BeachFe",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Pavel Kononenko (@storuky)",
+  "license": "MIT",
+  "dependencies": {
+    "autosize": "^4.0.2",
+    "pretty-checkbox-vue": "^1.1.9"
+  }
+}

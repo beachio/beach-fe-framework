@@ -1,0 +1,15 @@
+@import "~pretty-checkbox/dist/pretty-checkbox.min.css";
+
+.pretty input:checked ~ .state.p-primary label:after,
+.pretty.p-toggle .state.p-primary label:after,
+.pretty.p-switch.p-fill input:checked ~ .state.p-primary:before {
+  background: #297ad6 !important;
+}
+
+.pretty input:checked ~ .state.p-primary-o label:before,
+.pretty.p-toggle .state.p-primary-o label:before {
+  border-color: #2979d6;
+}
+.pretty.p-default:not(.p-fill) input:checked ~ .state.p-primary-o label:after {
+  background-color: #2979d6 !important;
+}
