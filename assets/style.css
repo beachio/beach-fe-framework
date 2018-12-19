@@ -13,3 +13,13 @@
 .pretty.p-default:not(.p-fill) input:checked ~ .state.p-primary-o label:after {
   background-color: #2979d6 !important;
 }
+
+.pretty .state label {
+  text-indent: 2em !important;
+}
+
+.fe-link {
+  font-size: 13px;
+  color: #297ad6;
+  text-decoration: underline;
+}

@@ -1,12 +1,25 @@
 <template>
-  <div class="fe-form-row">
+  <div class="fe-form-row" :style="styles">
     <slot></slot>
   </div>
 </template>
 
 <script>
 export default {
-  name: "FeFormRow"
+  name: "FeFormRow",
+  props: {
+    justify: {
+      type: String,
+      default: "normal"
+    }
+  },
+  computed: {
+    styles() {
+      return {
+        justifyContent: this.justify
+      };
+    }
+  }
 };
 </script>
 

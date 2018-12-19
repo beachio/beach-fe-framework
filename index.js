@@ -34,7 +34,10 @@ import "./assets/style.css";
 import PrettyCheckbox from "pretty-checkbox-vue";
 
 export default {
-  install(Vue) {
+  install(Vue, params = {}) {
+    Vue.prototype.$feStore = store;
+    Vue.prototype.$feCreadentials = params.creadentials;
+
     Vue.use(PrettyCheckbox);
     Vue.component("FeApp", FeApp);
     Vue.component("FeHeader", FeHeader);
@@ -62,7 +65,5 @@ export default {
     Vue.component("FeCheckbox", FeCheckbox);
     Vue.component("FeRadio", FeRadio);
     Vue.component("FeSwitch", FeSwitch);
-
-    Vue.prototype.$feStore = store;
   }
 };
