@@ -51,37 +51,33 @@ export default {
 
 <style scoped>
 .fe-list {
-}
-.fe-list__item {
   border-radius: 20px;
   background: white;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.05), 0 1px 10px rgba(0, 0, 0, 0.05);
+}
+.fe-list__item {
   font-size: 14px;
   color: #313133;
   padding: 0 16px;
   height: 40px;
-  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.05), 0 1px 10px rgba(0, 0, 0, 0.05);
   display: flex;
   align-items: center;
   justify-content: space-between;
   min-width: 250px;
   cursor: pointer;
-  margin-bottom: 20px;
+  border-radius: 20px;
 }
 .fe-list__item:hover {
   color: #297ad6;
   background: white;
 }
-.fe-list__item.selected {
-  background: #297ad6 !important;
-  color: white !important;
-}
 
-.fe-list__item.selected >>> .fe-list__item-selected,
-.fe-list__item:hover >>> .fe-list__item-selected {
+.fe-list__item.selected >>> .fe-list__item-selected {
   display: block;
 }
 
 .fe-list__item-selected {
+  color: #297ad6;
   font-size: 20px;
   display: none;
 }
