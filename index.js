@@ -20,6 +20,7 @@ import FeIcon from "./components/FeIcon";
 
 import FeButton from "./components/FeForm/FeButton";
 import FeList from "./components/FeForm/FeList";
+import FeSelect from "./components/FeForm/FeSelect";
 import FeTextField from "./components/FeForm/FeTextField";
 import FeTextArea from "./components/FeForm/FeTextArea";
 import FeFormRow from "./components/FeForm/FeFormRow";
@@ -66,6 +67,7 @@ export default {
     Vue.component("FeLabel", FeLabel);
     Vue.component("FeCheckbox", FeCheckbox);
     Vue.component("FeRadio", FeRadio);
+    Vue.component("FeSelect", FeSelect);
     Vue.component("FeSwitch", FeSwitch);
   }
 };
