@@ -19,6 +19,7 @@ import FeContent from "./components/FeContent";
 import FeIcon from "./components/FeIcon";
 
 import FeButton from "./components/FeForm/FeButton";
+import FeList from "./components/FeForm/FeList";
 import FeTextField from "./components/FeForm/FeTextField";
 import FeTextArea from "./components/FeForm/FeTextArea";
 import FeFormRow from "./components/FeForm/FeFormRow";
@@ -58,6 +59,7 @@ export default {
     Vue.component("FeIcon", FeIcon);
 
     Vue.component("FeButton", FeButton);
+    Vue.component("FeList", FeList);
     Vue.component("FeTextField", FeTextField);
     Vue.component("FeTextArea", FeTextArea);
     Vue.component("FeFormRow", FeFormRow);

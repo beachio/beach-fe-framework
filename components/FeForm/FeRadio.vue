@@ -1,7 +1,13 @@
 <template>
   <div style="display: inline-block">
     <div class="fe-radio">
-      <PrettyRadio :name="name" class="p-default p-round p-thick" color="primary-o">
+      <PrettyRadio
+        v-model="localValue"
+        :name="name"
+        class="p-default p-round p-thick"
+        :value="currentValue"
+        color="primary-o"
+      >
         <slot></slot>
       </PrettyRadio>
     </div>
@@ -16,8 +22,11 @@ export default {
     PrettyRadio
   },
   props: {
-    value: Boolean,
+    value: {},
     name: String
+  },
+  created() {
+    this.currentValue = this.$attrs.value;
   },
   data() {
     return {
