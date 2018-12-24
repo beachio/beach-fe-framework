@@ -7,11 +7,13 @@ const Organisation = () =>
     {
       setCurrent: {
         method: "PUT",
-        url: "v1/organisations{/id}/current"
+        url: "v1/organisations{/id}/current",
+        bearer: true
       },
       getCurrent: {
         method: "GET",
-        url: "v1/organisations/get_current"
+        url: "v1/organisations/get_current",
+        bearer: true
       }
     }
   );
