@@ -1,4 +1,5 @@
-import Authorize from "../../resources/Authorize";
+import { Authorize } from "../../resources";
+import Vue from "vue";
 
 const store = {
   namespaced: true,
@@ -16,7 +17,10 @@ const store = {
     }
   },
   actions: {
-    login({ commit }, { email, password }) {
+    login({ commit }, { email, password, creadentials }) {
+      const { APPLICATION_ID, APPLICATION_SECRET } =
+        Vue.prototype.$feCreadentials || creadentials;
+
       return new Promise((resolve, reject) => {
         const params = {
           session: {
@@ -24,7 +28,11 @@ const store = {
             password
           }
         };
-        Authorize()
+        Authorize({
+          headers: {
+            AUTHORIZATION: `application_id ${APPLICATION_ID}, client_secret ${APPLICATION_SECRET}`
+          }
+        })
           .login(params)
           .then(
             response => {
@@ -36,7 +44,10 @@ const store = {
           );
       });
     },
-    register({ commit }, { email, password, username }) {
+    register({ commit }, { email, password, username, creadentials }) {
+      const { APPLICATION_ID, APPLICATION_SECRET } =
+        Vue.prototype.$feCreadentials || creadentials;
+
       return new Promise((resolve, reject) => {
         const params = {
           user: {
@@ -46,7 +57,11 @@ const store = {
           }
         };
 
-        Authorize()
+        Authorize({
+          headers: {
+            AUTHORIZATION: `application_id ${APPLICATION_ID}, client_secret ${APPLICATION_SECRET}`
+          }
+        })
           .register(params)
           .then(
             response => {

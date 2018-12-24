@@ -41,6 +41,7 @@ export default {
     Vue.prototype.$feCreadentials = params.creadentials;
 
     Vue.use(PrettyCheckbox);
+
     Vue.component("FeApp", FeApp);
     Vue.component("FeHeader", FeHeader);
     Vue.component("FeHeaderSection", FeHeaderSection);
