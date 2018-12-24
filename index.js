@@ -28,6 +28,7 @@ import FeLabel from "./components/FeForm/FeLabel";
 import FeCheckbox from "./components/FeForm/FeCheckbox";
 import FeRadio from "./components/FeForm/FeRadio";
 import FeSwitch from "./components/FeForm/FeSwitch";
+import FeSortableList from "./components/FeForm/FeSortableList";
 
 import "./assets/inter-ui-font/inter-ui.css";
 import "./assets/icons/icomoon/style.css";
@@ -70,5 +71,6 @@ export default {
     Vue.component("FeRadio", FeRadio);
     Vue.component("FeSelect", FeSelect);
     Vue.component("FeSwitch", FeSwitch);
+    Vue.component("FeSortableList", FeSortableList);
   }
 };
