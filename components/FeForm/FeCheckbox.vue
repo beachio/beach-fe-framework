@@ -17,7 +17,10 @@ export default {
     PrettyCheck
   },
   props: {
-    value: Boolean
+    value: {
+      type: Boolean,
+      default: false
+    }
   },
   data() {
     return {

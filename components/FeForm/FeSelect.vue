@@ -8,11 +8,11 @@
       <div
         :class="{selected: selected(item)}"
         class="fe-select__item"
-        v-for="item in list"
+        v-for="item in options"
         :key="item.id"
         @click="select(item)"
       >
-        <div class="fe-select__item-label">{{item.text}}</div>
+        <div class="fe-select__item-label">{{item.text || item.name || item.title}}</div>
         <div class="fe-select__item-selected">
           <i class="icon-Check"></i>
         </div>
@@ -31,7 +31,7 @@ export default {
         return [];
       }
     },
-    list: {
+    options: {
       type: Array,
       default() {
         return [];
@@ -73,7 +73,7 @@ export default {
   },
   computed: {
     selectedItems() {
-      return this.list
+      return this.options
         .filter(item => this.value.includes(item.id))
         .map(item => item.text);
     }

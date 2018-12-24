@@ -3,11 +3,11 @@
     <div
       :class="{selected: selected(item)}"
       class="fe-list__item"
-      v-for="item in list"
+      v-for="item in options"
       :key="item.id"
       @click="select(item)"
     >
-      <div class="fe-list__item-label">{{item.text}}</div>
+      <div class="fe-list__item-label">{{item.text || item.name || item.title}}</div>
       <div class="fe-list__item-selected">
         <i class="icon-Check"></i>
       </div>
@@ -25,20 +25,26 @@ export default {
         return [];
       }
     },
-    list: {
+    options: {
       type: Array,
       default() {
         return [];
       }
+    },
+    multiple: {
+      type: Boolean,
+      default: false
     }
   },
   methods: {
     select(item) {
-      if (this.value.includes(item.id)) {
-        const items = this.value.filter(val => val != item.id);
+      const value = this.multiple ? this.value : [];
+
+      if (value.includes(item.id)) {
+        const items = value.filter(val => val != item.id);
         this.$emit("input", items);
       } else {
-        const items = [...this.value, item.id];
+        const items = [...value, item.id];
         this.$emit("input", items);
       }
     },
