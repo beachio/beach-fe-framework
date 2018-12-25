@@ -1,6 +1,6 @@
 <template>
   <div class="fe-header-nav-item" :class="classes" @click="setRoute">
-    <div>{{item.title}}</div>
+    <div>{{item.text || item.name || item.title}}</div>
   </div>
 </template>
 <script>

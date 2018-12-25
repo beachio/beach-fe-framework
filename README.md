@@ -2,7 +2,7 @@
 
 ## \$feStore
 
-Inside BeachFe we have a store `\$feStore`. This is a secondary store that should be used for communicating with `Beach Api Core`.
+Inside BeachFe we have a store `$feStore`. This is a secondary store that should be used for communicating with `Beach Api Core`.
 
 ### Application
 
@@ -147,7 +147,7 @@ Inside BeachFe we have a store `\$feStore`. This is a secondary store that shoul
 
 ### FeApp
 
-Main wrapper for BeachFe application
+Root wrapper for BeachFe application
 
 > **Slots:** `default`
 
@@ -159,16 +159,99 @@ Header wrapper
 
 ### FeHeaderSection
 
-Header Section
+Header Section. **Use this component inside `FeHeader`**
 
 > **Slots:** `default`
 
 ### FeHeaderNav
 
-Header Nav
+Header Nav. **Use this component inside `FeHeaderSection`**
 
 > **Slots:** `none`
 
-| Props | Type    | default | description |
-| ----- | ------- | ------- | ----------- |
-| items | `Array` | `[]`    |             |
+| Props | Type    | default | description                                   |
+| ----- | ------- | ------- | --------------------------------------------- |
+| items | `Array` | `[]`    | Array of NavItems <br/>`[{title, route},...]` |
+
+### FeHeaderActions
+
+Actions Section. **Use this component inside `FeHeaderSection`**
+
+> **Slots:** `default`
+
+### FeHeaderAction
+
+Action inside Actions Section. **Use this component inside `FeHeaderActions`**
+
+> **Slots:** `default`
+
+### FeHeaderActionDropdown
+
+Action as a dropdown. **Use this component inside `FeHeaderAction`**
+
+> **Slots:** `default` and `main`
+
+| Props    | Type     | default | description               |
+| -------- | -------- | ------- | ------------------------- |
+| position | `String` | `left`  | `left`, `right`, `center` |
+
+### FeHeaderActionProfile
+
+Profile Dropdown Component. **Use this component inside `FeHeaderAction`**
+
+> **Slots:** `default`
+
+### FeHeaderActionDropdownItem
+
+**Use this component inside `FeHeaderActionDropdown` or `FeHeaderActionProfile`**
+
+> **Slots:** `default`
+
+### FeSidebar
+
+> **Slots:** `default`
+
+### FeSidebarLogo
+
+> **Slots:** `default`
+
+### FeSidebarNav
+
+> **Slots:** `default`
+
+| Props | Type    | default | description      |
+| ----- | ------- | ------- | ---------------- |
+| items | `Array` | `[]`    | Array of NavItem |
+
+**NavItem:**
+
+```
+{
+  title: String[HTML-content],
+  rightSide: String[HTML-content],
+  leftSide: String[HTML-content],
+  opened: Boolean(false),
+  bold: Boolean(false),
+  click: () => {},
+  route: String
+  noMargin: Boolean(false),
+  items: [...NavItems...]
+}
+```
+
+### FeSidebarFooter
+
+> **Slots:** `default`
+
+### FeContent
+
+> **Slots:** `default`
+
+### FeIcon
+
+> **Slots:** `none`
+
+| Props | Type             | default | description |
+| ----- | ---------------- | ------- | ----------- |
+| size  | `Number, String` | `16`    |             |
+| name  | `String`         |         | icon name   |
