@@ -1,12 +1,17 @@
 <template>
-  <div class="fe-label">
+  <div class="fe-label" :class="classes">
     <slot></slot>
   </div>
 </template>
 
 <script>
 export default {
-  name: "FeLabel"
+  name: "FeLabel",
+  computed: {
+    classes() {
+      return [`fe-label--${this.$feStore.getters["application/theme"]}`];
+    }
+  }
 };
 </script>
 
@@ -17,5 +22,9 @@ export default {
   width: 100%;
   color: #2c2c30;
   cursor: default;
+}
+
+.fe-label--light {
+  color: white;
 }
 </style>
