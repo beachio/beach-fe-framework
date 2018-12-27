@@ -20,11 +20,13 @@ export default {
   margin-bottom: 8px;
   font-size: 14px;
   width: 100%;
-  color: #2c2c30;
   cursor: default;
 }
 
 .fe-label--light {
+  color: #2c2c30;
+}
+.fe-label--dark {
   color: white;
 }
 </style>
