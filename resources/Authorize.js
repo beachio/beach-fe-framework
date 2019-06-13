@@ -1,13 +1,15 @@
 import Vue from "vue";
 
-export default ({ headers = {} }) =>
-  Vue.resource(
-    "v1/users",
+export default ({ headers = {} }) => {
+  const { RESOURCES_URL } = Vue.prototype.$feCreadentials
+
+  return Vue.resource(
+    `${RESOURCES_URL}/v1/users`,
     {},
     {
       login: {
         method: "POST",
-        url: "v1/auth",
+        url: `${RESOURCES_URL}/v1/auth`,
         headers
       },
       register: {
@@ -17,3 +19,4 @@ export default ({ headers = {} }) =>
       }
     }
   );
+}
