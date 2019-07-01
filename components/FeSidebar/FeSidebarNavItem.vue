@@ -3,7 +3,11 @@
     <div class="fe-sidebar-nav-item__line" @click="click">
       <div class="fe-sidebar-nav-item__left">
         <div class="fe-sidebar-nav-item__left-side" v-if="item.leftSide" v-html="item.leftSide"></div>
-        <div class="fe-sidebar-nav-item__title">{{item.title}}</div>
+        <div class="fe-sidebar-nav-item__wrapper">
+          <div class="fe-sidebar-nav-item__title">{{ item.title }}</div>
+          <div class="fe-sidebar-nam-item__delete-button" v-if="item.route" @click.stop.prevent="toggleDeleteModal(item.id, item.type)"></div>
+          <!--<div class="fe-sidebar-nam-item__delete-button" v-if="item.route" @click.stop.prevent="deleteItem(item.id, item.type)"></div> -->
+        </div>
       </div>
       <div class="fe-sidebar-nav-item__right-side" v-if="item.rightSide" v-html="item.rightSide"></div>
     </div>
@@ -12,6 +16,7 @@
         <FeSidebarNabItem :item="item"/>
       </div>
     </div>
+    <DeletePopup @toggleDeleteModal="toggleDeleteModal" v-if="openDeleteModal"/>
   </div>
 </template>
 
@@ -22,10 +27,17 @@ export default {
     item: {
       type: Object,
       default() {
-        return {};
+        return {
+         openDeleteModal: false,
+        };
       }
     }
   },
+
+  components: {
+     DeletePopup: () => import('@/components/popup/DeletePopup'),
+  },
+
   created() {
     this.$on("setActive", () => {
       this.setActive();
@@ -40,7 +52,8 @@ export default {
   data() {
     return {
       opened: this.item.opened,
-      active: false
+      active: false,
+      openDeleteModal: false
     };
   },
   methods: {
@@ -59,7 +72,43 @@ export default {
     },
     setOpened() {
       this.opened = true;
-    }
+    },
+    async deleteItem(id, type) {
+      const resource = type == "project" ? this.$api.Project.delete : this.$api.Resource.delete
+      const action = type == "project" ? 'currentProject' : 'currentResource'
+
+      await this.$store.dispatch("entities/delete", {
+        resource: resource,
+        name: action,
+        id: id 
+      })
+
+      if (type == "project") {
+        this.setProjects()
+      } else {
+        this.setResources()
+      }
+    },
+
+    toggleDeleteModal (id, type) {
+      this.$store.commit("entities/togglePopup", { id: id, type: type } )
+      this.openDeleteModal = !this.openDeleteModal
+    },
+
+
+    setProjects () {
+      this.$store.dispatch("entities/query", {
+        name: "projects",
+        resource: this.$api.Project.query
+      })
+    },
+    
+    setResources() {
+      this.$store.dispatch("entities/query", {
+        name: "resources",
+        resource: this.$api.Resource.query
+      })
+    },
   },
   computed: {
     classes() {

@@ -23,3 +23,24 @@
   color: #297ad6;
   text-decoration: underline;
 }
+
+.fe-sidebar-nav-item__title{
+  width: 190px;
+}
+
+.fe-sidebar-nav-item__wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.fe-sidebar-nam-item__delete-button{
+  background: url("../../../assets/delete_icon.svg") no-repeat center / contain;
+  width: 20px;
+  height: 20px;
+  transition: transform .5s ease;
+  will-change: transform;
+}
+
+.fe-sidebar-nam-item__delete-button:hover {
+  transform: scale(1.3);
+} 
