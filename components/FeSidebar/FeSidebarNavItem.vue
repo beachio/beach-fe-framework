@@ -16,7 +16,7 @@
         <FeSidebarNabItem :item="item"/>
       </div>
     </div>
-    <DeletePopup @toggleDeleteModal="toggleDeleteModal" v-if="openDeleteModal"/>
+    <DeletePopUp @toggleDeleteModal="toggleDeleteModal" v-if="openDeleteModal"/>
   </div>
 </template>
 
@@ -35,7 +35,7 @@ export default {
   },
 
   components: {
-     DeletePopup: () => import('@/components/popup/DeletePopup'),
+     DeletePopUp: () => import('@/components/popup/DeletePopup'),
   },
 
   created() {
@@ -73,22 +73,22 @@ export default {
     setOpened() {
       this.opened = true;
     },
-    async deleteItem(id, type) {
-      const resource = type == "project" ? this.$api.Project.delete : this.$api.Resource.delete
-      const action = type == "project" ? 'currentProject' : 'currentResource'
+   // async deleteItem(id, type) {
+   //   const resource = type == "project" ? this.$api.Project.delete : this.$api.Resource.delete
+   //   const action = type == "project" ? 'currentProject' : 'currentResource'
 
-      await this.$store.dispatch("entities/delete", {
-        resource: resource,
-        name: action,
-        id: id 
-      })
+   //   await this.$store.dispatch("entities/delete", {
+   //     resource: resource,
+   //     name: action,
+   //     id: id 
+   //   })
 
-      if (type == "project") {
-        this.setProjects()
-      } else {
-        this.setResources()
-      }
-    },
+   //   if (type == "project") {
+   //     this.setProjects()
+   //   } else {
+   //     this.setResources()
+   //   }
+   // },
 
     toggleDeleteModal (id, type) {
       this.$store.commit("entities/togglePopup", { id: id, type: type } )
