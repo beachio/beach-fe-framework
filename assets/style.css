@@ -34,7 +34,7 @@
 }
 
 .fe-sidebar-nam-item__delete-button{
-  background: url("../../../assets/delete_icon.svg") no-repeat center / contain;
+  background: url("../assets/icons/Delete.svg") no-repeat center / contain;
   width: 20px;
   height: 20px;
   transition: transform .5s ease;
